@@ -1,18 +1,36 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Content, Footer, Header } from 'antd/es/layout/layout'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { StoreContext } from './context/StoreContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
-    return (
-        <Header className='flex items-center justify-between'><h1 className='text-white text-3xl'>FakeShop</h1>
+    const navigate=useNavigate();
+    const {setToken,cartproducts} = useContext(StoreContext);
 
-            <div className=" hidden md:flex items-center space-x-4 text-xl text-white">
-                <Link to="/home" className="text-white">Home</Link>
-                <Link to="/menu" className="text-white">Menu</Link>
-                <Link to="/about" className="text-white">About</Link>
-                <Link to="/contact" className="text-white">Contact Us</Link>
+    //login
+    const userlogout = () => {
+        setToken(null)
+        navigate('/login')
+        toast.success("logout successfully",{
+            autoClose:2000,
+            className: "custom-toast",
+        })
+    }
+    return (
+        <Header className='flex items-center p-0 m-0 justify-between'>
+            <h1 className='text-white text-2xl mr-[20px] md:text-3xl'>FakeShop</h1>
+
+            <div className="flex items-center gap-2 text-xl">
+            
+                <Link to="/" ><span className="text-amber-400 text-[14px] md:text-2xl  hover:underline">Home</span></Link>
+                <Link to="/cart" className='w-[50px] md:w-[150px]'><span className=' text-amber-400 text-[14px]  md:text-2xl hover:underline'>cart {cartproducts.length}</span></Link>
+            </div>
+            <div>
+                <button onClick={userlogout} className='bg-amber-400 rounded-xl p-2'>logout</button>
             </div>
         </Header>
+        
     )
 }
 
