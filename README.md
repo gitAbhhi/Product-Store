@@ -1,12 +1,65 @@
-# React + Vite
+# 🛍️ Shopping Website Using React + Fake Store API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a front-end internship assignment designed to demonstrate core skills in React, API integration, responsive design, and state management using Context API. It is a complete shopping website that connects to [Fake Store API](https://fakestoreapi.com/docs) and mimics a real-world e-commerce experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📸 Screenshots
 
-## Expanding the ESLint configuration
+> *(Add your screenshots here — Home, Product Details, Cart, Login, etc.)*
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Live Demo
+
+🔗 [Live Site URL (Netlify/Vercel)](https://your-deployment-link.com)
+
+### Credentials for Testing (from Fake Store API)
+- username: johnd
+- password: m38rmF$
+
+---
+
+## 🧑‍💻 Features
+
+### 🔐 Login Page
+- Login form with username & password fields.
+- Authenticates using `/auth/login` from Fake Store API.
+- JWT token is stored in `localStorage`.
+- Redirects to Product Listing page on successful login.
+
+### 🏠 Product Listing (Home)
+- Fetches and displays all products from `/products`.
+- Responsive grid layout.
+- Category filter support (`/products/category/:category`).
+
+
+### 📦 Product Detail Page
+- Shows full details of selected product: image, title, description, price.
+- "Add to Cart" functionality with quantity management.
+
+### 🛒 Cart Page
+- Displays all items added to cart.
+- Allows removing products or updating their quantity.
+- Displays total price (auto-updated).
+- Checkout button clears the cart.
+
+### 🔝 Navigation/Header
+- Navigation links: `Home | Cart | Logout`.
+- Shows current cart item count.
+- Logout clears token and redirects to Login.
+
+---
+
+## ⚙️ Tech Stack
+
+- **React.js** (Vite)
+- **React Router v6**
+- **React Hooks**
+- **Context API**
+- **Tailwind CSS**
+- **Mobile-first Responsive Design**
+- **Fake Store API**
+
+---
+
