@@ -10,6 +10,7 @@ import { StoreContext } from './component/context/StoreContext'
 import Cart from './pages/Cart'
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
+import ProtectedRoute from './component/ProtectedRoute'
 
 
 
@@ -17,23 +18,39 @@ function App() {
   const { token } = useContext(StoreContext);
   const navigate = useNavigate();
   return (
-    < >
-      <ToastContainer />
-      {token ? (<>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='product/:id' element={<Productdetail />} />
-        </Routes>
-        <Footerpage />
-      </>) : (
-        <Routes>
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      )
-      }
+//     < >
+//       {token ? (<>
+//         <Navbar />
+//         <Routes>
+//           <Route path='/' element={<Home />} />
+//           <Route path='/cart' element={<Cart />} />
+//           <Route path='product/:id' element={<Productdetail />} />
+//         </Routes>
+//         <Footerpage />
+//       </>) : (
+//         <Routes>
+//           <Route path="/login" element={<Login />} />
+//         </Routes>
+//       )
+//     }
+// <ToastContainer />
 
+//     </>
+<>
+      <ToastContainer />
+      {/* <Navbar /> */}
+      <Routes>
+        {/* Public Route */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Protected Routes */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/product/:id" element={<Productdetail />} />
+        </Route>
+      {/* <Footerpage /> */}
+      </Routes>
     </>
 
   )

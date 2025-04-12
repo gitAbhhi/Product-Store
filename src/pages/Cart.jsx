@@ -37,6 +37,8 @@ const Cart = () => {
 
 
     return (
+        <Layout>
+
         <div className='min-h-screen flex flex-col justify-start items-center'>
             {cartproducts.length > 0 ? cartproducts.map((product) => (
                 <div key={product.id} className='block md:flex w-[95vw]  m-[20px] shadow-md rounded-2xl border-2 border-gray-200 md:h-[202px] h-[400px] '>
@@ -72,6 +74,8 @@ const Cart = () => {
 
             </> : <></>}
         </div>
+        </Layout>
+
     )
 }
 

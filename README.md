@@ -12,7 +12,7 @@ This project is a front-end internship assignment designed to demonstrate core s
 
 ## 🚀 Live Demo
 
-🔗 [Live Site URL (Netlify/Vercel)](https://your-deployment-link.com)
+🔗 [Live Site URL](https://product-store-mauve-omega.vercel.app/)
 
 ### Credentials for Testing (from Fake Store API)
 - username: johnd

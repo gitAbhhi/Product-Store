@@ -3,6 +3,7 @@ import React, { useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Productdetail from '../pages/Productdetail'
 import { StoreContext } from '../component/context/StoreContext'
+import Layout from './Layout'
 
 const Home = () => {
 
@@ -19,7 +20,8 @@ const Home = () => {
     },[])
 
     return (
-        <div>
+        
+        <Layout>
             <div className='w-full min-h-screen bg-gray-800' >
                 <div className='grid   p-4 gap-3 grid-cols-1 sm:grid-cols-2  md:grid-cols-4 justify-center mx-auto'>
                     {products.length > 0 ? (products.map((product) => (
@@ -44,7 +46,7 @@ const Home = () => {
                 </div>
 
             </div>
-        </div>
+        </Layout>
     )
 
 }

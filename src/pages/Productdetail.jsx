@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { StoreContext } from '../component/context/StoreContext'
 import { toast } from 'react-toastify'
+import Layout from './Layout'
 
 const Productdetail = () => {
     const { product, setproduct,setcartproducts } = useContext(StoreContext)
@@ -50,6 +51,8 @@ const Productdetail = () => {
 
     if (product)
         return (
+    <Layout>
+
             <div className='block md:flex w-full md:h-[100vh]'>
                 <div className='md:w-[40%] h-[50vh] md:h-full flex items-center p-[20px] justify-center'>
                     <img src={product.image} alt="img" width="200" />
@@ -61,6 +64,8 @@ const Productdetail = () => {
                     <button onClick={() => addToCart(product)} className='py-1 px-3 border-2 border-white mt-3 rounded-full'>Add to Cart</button>
                 </div>
             </div>
+    </Layout>
+
         )
 }
 
