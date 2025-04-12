@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../component/context/StoreContext'
 import { toast } from 'react-toastify';
+import Layout from './Layout';
 
 const Cart = () => {
     const [total, setTotal] = useState(0);
