@@ -31,7 +31,6 @@ This project is a front-end internship assignment designed to demonstrate core s
 ### 🏠 Product Listing (Home)
 - Fetches and displays all products from `/products`.
 - Responsive grid layout.
-- Category filter support (`/products/category/:category`).
 
 
 ### 📦 Product Detail Page
