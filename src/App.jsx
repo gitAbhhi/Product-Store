@@ -1,29 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useContext, useEffect, useState } from 'react'
 import './App.css'
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Navbar from './component/Navbar'
 import Footerpage from './component/Footer'
-import Productlist from './pages/Productlist'
-import Productdetail3 from './pages/Productdetail3'
+import Productdetail from './pages/Productdetail'
 import Login from './pages/Login'
 import Home from './pages/Home'
+import { StoreContext } from './component/context/StoreContext'
+import Cart from './pages/Cart'
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css"
 
 
 
 function App() {
-
+  const { token } = useContext(StoreContext);
+  const navigate = useNavigate();
   return (
     < >
-      <BrowserRouter>
+      <ToastContainer />
+      {token ? (<>
+        <Navbar />
         <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/home' element={<Home />}>
-            {/* <Route path='productlist' element={<Productlist />} /> */}
-            <Route path='product/:id' element={<Productdetail3 />} /></Route>
+          <Route path='/' element={<Home />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='product/:id' element={<Productdetail />} />
         </Routes>
-      </BrowserRouter>
+        <Footerpage />
+      </>) : (
+        <Routes>
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      )
+      }
+
     </>
 
   )
